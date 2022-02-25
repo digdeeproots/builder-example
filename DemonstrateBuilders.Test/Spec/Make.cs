@@ -6,7 +6,9 @@ internal static class Make
 {
 	public static ClaimsPrincipal Authentication()
 	{
-		return new AuthBuilder().BuildOuter();
+		var tempQualifier = new AuthBuilder();
+		tempQualifier.WithEmailAddress();
+		return tempQualifier.Build();
 	}
 }
 
@@ -22,12 +24,6 @@ internal class AuthBuilder
 	public void WithEmailAddress()
 	{
 		_claims.Add(new Claim(ClaimTypes.Email, Arbitrary.Email));
-	}
-
-	public ClaimsPrincipal BuildOuter()
-	{
-		WithEmailAddress();
-		return Build();
 	}
 
 	public ClaimsPrincipal Build()
