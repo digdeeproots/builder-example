@@ -19,7 +19,7 @@ internal class AuthBuilder
 		_claims = new List<Claim>();
 	}
 
-	private void WithEmailAddress()
+	public void WithEmailAddress()
 	{
 		_claims.Add(new Claim(ClaimTypes.Email, Arbitrary.Email));
 	}
@@ -30,7 +30,7 @@ internal class AuthBuilder
 		return Build();
 	}
 
-	private ClaimsPrincipal Build()
+	public ClaimsPrincipal Build()
 	{
 		return new ClaimsPrincipal(new ClaimsIdentity(_claims));
 	}
