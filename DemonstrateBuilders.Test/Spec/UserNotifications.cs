@@ -4,10 +4,10 @@ using Xunit;
 
 namespace Tests.Spec
 {
-	public class UnitTest1
+	public class UserNotifications
 	{
 		[Fact]
-		public void Test1()
+		public void AskingForHelpShouldSendHowToEmail()
 		{
 			new SomePage().Should().NotBeNull();
 		}
