@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Security.Claims;
 using Tests.TestSupport;
 
@@ -11,11 +12,11 @@ internal static class Make
 
 internal class AuthBuilder
 {
-	private readonly Claim[] _claims;
+	private readonly List<Claim> _claims;
 
 	public AuthBuilder()
 	{
-		_claims = new Claim[] {new(ClaimTypes.Email, Arbitrary.Email)};
+		_claims = new List<Claim> {new(ClaimTypes.Email, Arbitrary.Email)};
 	}
 
 	public ClaimsPrincipal Build()
