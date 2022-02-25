@@ -9,7 +9,7 @@ namespace Tests.Spec
 			return Authentication().WithEmailAddress().Build();
 		}
 
-		private static AuthBuilder Authentication()
+		public static AuthBuilder Authentication()
 		{
 			return new AuthBuilder();
 		}
