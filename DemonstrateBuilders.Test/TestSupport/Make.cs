@@ -1,4 +1,4 @@
-namespace Tests.Spec
+namespace Tests.TestSupport
 {
 	internal static class Make
 	{

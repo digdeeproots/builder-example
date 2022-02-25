@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Security.Claims;
-using Tests.TestSupport;
 
-namespace Tests.Spec
+namespace Tests.TestSupport
 {
 	internal class AuthBuilder
 	{
