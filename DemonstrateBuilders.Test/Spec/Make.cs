@@ -16,7 +16,8 @@ internal class AuthBuilder
 
 	public AuthBuilder()
 	{
-		_claims = new List<Claim> {new(ClaimTypes.Email, Arbitrary.Email)};
+		_claims = new List<Claim>();
+		_claims.Add(new Claim(ClaimTypes.Email, Arbitrary.Email));
 	}
 
 	public ClaimsPrincipal Build()
