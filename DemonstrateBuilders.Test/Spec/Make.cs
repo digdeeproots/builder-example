@@ -17,7 +17,6 @@ internal class AuthBuilder
 	public AuthBuilder()
 	{
 		_claims = new List<Claim>();
-		WithEmailAddress();
 	}
 
 	private void WithEmailAddress()
@@ -27,6 +26,7 @@ internal class AuthBuilder
 
 	public ClaimsPrincipal Build()
 	{
+		WithEmailAddress();
 		return new ClaimsPrincipal(new ClaimsIdentity(_claims));
 	}
 }
