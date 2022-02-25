@@ -10,7 +10,8 @@ namespace Tests.Spec
 		public void AskingForHelpShouldSendHowToEmail()
 		{
 			var testSubject = new SomePage();
-			testSubject.Should().NotBeNull();
+			var result = testSubject.CreateHowToEmail();
+			result.Should().BeNull();
 		}
 	}
 }
