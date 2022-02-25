@@ -2,6 +2,7 @@ using DemonstrateBuilders;
 using FluentAssertions;
 using System.Linq;
 using System.Security.Claims;
+using Tests.TestSupport;
 using Xunit;
 
 namespace Tests.Spec
