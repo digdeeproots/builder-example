@@ -1,7 +1,8 @@
+using DemonstrateBuilders;
 using FluentAssertions;
 using Xunit;
 
-namespace DemonstrateBuilders.Test
+namespace Tests
 {
 	public class UnitTest1
 	{
