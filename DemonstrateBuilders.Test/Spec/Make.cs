@@ -27,6 +27,11 @@ internal class AuthBuilder
 	public ClaimsPrincipal BuildOuter()
 	{
 		WithEmailAddress();
+		return Build();
+	}
+
+	private ClaimsPrincipal Build()
+	{
 		return new ClaimsPrincipal(new ClaimsIdentity(_claims));
 	}
 }
