@@ -2,7 +2,7 @@ using DemonstrateBuilders;
 using FluentAssertions;
 using Xunit;
 
-namespace Tests
+namespace Tests.Spec
 {
 	public class UnitTest1
 	{

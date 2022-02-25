@@ -23,4 +23,9 @@
     <ProjectReference Include="..\DemonstrateBuilders\DemonstrateBuilders.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Details\" />
+    <Folder Include="TestSupport\" />
+  </ItemGroup>
+
 </Project>
