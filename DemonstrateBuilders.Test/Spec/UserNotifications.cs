@@ -1,5 +1,7 @@
 using DemonstrateBuilders;
 using FluentAssertions;
+using System.Net.Mail;
+using System.Security.Claims;
 using Xunit;
 
 namespace Tests.Spec
@@ -9,7 +11,9 @@ namespace Tests.Spec
 		[Fact]
 		public void AskingForHelpShouldSendHowToEmail()
 		{
-			var testSubject = new SomePage();
+			var loggedInUser =
+				new ClaimsPrincipal(new ClaimsIdentity(new Claim[] {new(ClaimTypes.Email, "arbitrary.email@example.com")}));
+			var testSubject = new SomePage(loggedInUser);
 			var result = testSubject.CreateHowToEmail();
 			result.Should().NotBeNull();
 		}
