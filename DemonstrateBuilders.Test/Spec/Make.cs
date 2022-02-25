@@ -5,8 +5,6 @@ internal static class Make
 {
 	public static ClaimsPrincipal Authentication()
 	{
-		var tempQualifier = new AuthBuilder();
-		tempQualifier.WithEmailAddress();
-		return tempQualifier.Build();
+		return new AuthBuilder().WithEmailAddress().Build();
 	}
 }
