@@ -13,9 +13,10 @@ namespace Tests.Spec
 			_claims = new List<Claim>();
 		}
 
-		public void WithEmailAddress()
+		public AuthBuilder WithEmailAddress()
 		{
 			_claims.Add(new Claim(ClaimTypes.Email, Arbitrary.Email));
+			return this;
 		}
 
 		public ClaimsPrincipal Build()
