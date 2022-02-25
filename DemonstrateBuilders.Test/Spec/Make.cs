@@ -5,15 +5,14 @@ internal static class Make
 {
 	public static ClaimsPrincipal Authentication()
 	{
-		return Build(new AuthBuilder());
-	}
-
-	private static ClaimsPrincipal Build(AuthBuilder authBuilder)
-	{
-		return new ClaimsPrincipal(new ClaimsIdentity(new Claim[] {new(ClaimTypes.Email, Arbitrary.Email)}));
+		return new AuthBuilder().Build();
 	}
 }
 
 internal class AuthBuilder
 {
+	public ClaimsPrincipal Build()
+	{
+		return new ClaimsPrincipal(new ClaimsIdentity(new Claim[] {new(ClaimTypes.Email, Arbitrary.Email)}));
+	}
 }
