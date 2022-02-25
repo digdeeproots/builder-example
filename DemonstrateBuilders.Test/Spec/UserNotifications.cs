@@ -11,7 +11,7 @@ namespace Tests.Spec
 		{
 			var testSubject = new SomePage();
 			var result = testSubject.CreateHowToEmail();
-			result.Should().BeNull();
+			result.Should().NotBeNull();
 		}
 	}
 }

@@ -6,7 +6,7 @@ namespace DemonstrateBuilders
 	{
 		public MailMessage CreateHowToEmail()
 		{
-			return null;
+			return new MailMessage();
 		}
 	}
 }
