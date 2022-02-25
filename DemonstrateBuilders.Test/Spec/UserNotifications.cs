@@ -1,7 +1,6 @@
 using DemonstrateBuilders;
 using FluentAssertions;
 using System.Linq;
-using System.Security.Claims;
 using Tests.TestSupport;
 using Xunit;
 
@@ -12,7 +11,7 @@ namespace Tests.Spec
 		[Fact]
 		public void AskingForHelpShouldSendHowToEmail()
 		{
-			var loggedInUser = Authentication();
+			var loggedInUser = Make.Authentication();
 			var testSubject = new SomePage(loggedInUser);
 			var result = testSubject.CreateHowToEmail();
 			result.Should().NotBeNull();
@@ -20,11 +19,6 @@ namespace Tests.Spec
 			result.To.First().Should().BeEquivalentTo(new {Address = Arbitrary.Email},
 				options => options.ExcludingMissingMembers());
 			result.From.Should().Be("customer.support@example.com");
-		}
-
-		private static ClaimsPrincipal Authentication()
-		{
-			return new ClaimsPrincipal(new ClaimsIdentity(new Claim[] {new(ClaimTypes.Email, Arbitrary.Email)}));
 		}
 	}
 }
