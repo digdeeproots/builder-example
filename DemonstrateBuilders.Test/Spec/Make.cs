@@ -1,10 +1,12 @@
 using System.Security.Claims;
-using Tests.Spec;
 
-internal static class Make
+namespace Tests.Spec
 {
-	public static ClaimsPrincipal Authentication()
+	internal static class Make
 	{
-		return new AuthBuilder().WithEmailAddress().Build();
+		public static ClaimsPrincipal Authentication()
+		{
+			return new AuthBuilder().WithEmailAddress().Build();
+		}
 	}
 }
