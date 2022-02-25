@@ -4,7 +4,7 @@ namespace Tests.Spec
 {
 	internal static class Make
 	{
-		public static ClaimsPrincipal Authentication()
+		public static ClaimsPrincipal AuthOuter()
 		{
 			return new AuthBuilder().WithEmailAddress().Build();
 		}
