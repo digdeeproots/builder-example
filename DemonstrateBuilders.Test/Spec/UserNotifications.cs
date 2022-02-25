@@ -16,6 +16,7 @@ namespace Tests.Spec
 			var testSubject = new SomePage(loggedInUser);
 			var result = testSubject.CreateHowToEmail();
 			result.Should().NotBeNull();
+			result.To.Should().BeEquivalentTo(new MailAddress[] { });
 		}
 	}
 }
