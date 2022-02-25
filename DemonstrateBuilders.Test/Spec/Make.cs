@@ -6,7 +6,12 @@ namespace Tests.Spec
 	{
 		public static ClaimsPrincipal AuthOuter()
 		{
-			return new AuthBuilder().WithEmailAddress().Build();
+			return Authentication().WithEmailAddress().Build();
+		}
+
+		private static AuthBuilder Authentication()
+		{
+			return new AuthBuilder();
 		}
 	}
 }
