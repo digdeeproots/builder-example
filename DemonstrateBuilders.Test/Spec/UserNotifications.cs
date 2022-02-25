@@ -11,9 +11,12 @@ namespace Tests.Spec
 		[Fact]
 		public void AskingForHelpShouldSendHowToEmail()
 		{
-			var loggedInUser = Make.Authentication().WithEmailAddress().Build();
+			var loggedInUser = Make.Authentication()
+				.WithEmailAddress(Arbitrary.Email)
+				.Build();
 			var testSubject = new SomePage(loggedInUser);
 			var result = testSubject.CreateHowToEmail();
+
 			result.Should().NotBeNull();
 			result.To.Should().HaveCount(1);
 			result.To.First().Should().BeEquivalentTo(new {Address = Arbitrary.Email},

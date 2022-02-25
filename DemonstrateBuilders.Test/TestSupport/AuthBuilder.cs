@@ -12,9 +12,9 @@ namespace Tests.TestSupport
 			_claims = new List<Claim>();
 		}
 
-		public AuthBuilder WithEmailAddress()
+		public AuthBuilder WithEmailAddress(string address)
 		{
-			_claims.Add(new Claim(ClaimTypes.Email, Arbitrary.Email));
+			_claims.Add(new Claim(ClaimTypes.Email, address));
 			return this;
 		}
 
