@@ -1,4 +1,5 @@
 using System.Net.Mail;
+using FluentAssertions;
 using Xunit;
 
 namespace DemonstrateBuilders.Test
@@ -8,7 +9,7 @@ namespace DemonstrateBuilders.Test
         [Fact]
         public void Test1()
         {
-            new Class1();
+            new Class1().Should().NotBeNull();
         }
     }
 }
