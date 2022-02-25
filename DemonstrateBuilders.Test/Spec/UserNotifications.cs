@@ -9,7 +9,8 @@ namespace Tests.Spec
 		[Fact]
 		public void AskingForHelpShouldSendHowToEmail()
 		{
-			new SomePage().Should().NotBeNull();
+			var testSubject = new SomePage();
+			testSubject.Should().NotBeNull();
 		}
 	}
 }
