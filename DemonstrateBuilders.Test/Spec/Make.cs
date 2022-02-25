@@ -11,8 +11,15 @@ internal static class Make
 
 internal class AuthBuilder
 {
+	private readonly Claim[] _claims;
+
+	public AuthBuilder()
+	{
+		_claims = new Claim[] {new(ClaimTypes.Email, Arbitrary.Email)};
+	}
+
 	public ClaimsPrincipal Build()
 	{
-		return new ClaimsPrincipal(new ClaimsIdentity(new Claim[] {new(ClaimTypes.Email, Arbitrary.Email)}));
+		return new ClaimsPrincipal(new ClaimsIdentity(_claims));
 	}
 }
