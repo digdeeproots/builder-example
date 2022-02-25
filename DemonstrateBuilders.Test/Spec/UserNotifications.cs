@@ -11,7 +11,7 @@ namespace Tests.Spec
 		[Fact]
 		public void AskingForHelpShouldSendHowToEmail()
 		{
-			var loggedInUser = Make.AuthOuter();
+			var loggedInUser = Make.Authentication().WithEmailAddress().Build();
 			var testSubject = new SomePage(loggedInUser);
 			var result = testSubject.CreateHowToEmail();
 			result.Should().NotBeNull();
