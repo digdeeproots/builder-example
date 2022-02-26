@@ -28,10 +28,18 @@ A process proposal consists of the following:
 
 Process review and agreement then follows the standard PR process. Generally, the project leadership will only approve the PR once Consent is achieved. PR comments are the preferred communications medium for discussing the change, so that the entire conversation is public.
 
-Use ACN
-Use 3 branch prefixes
-Use 3 test namespaces
-Follow editorconfig settings
-How to propose a process change
-How to build & test
-How to generate the spec
+## How We Do Things
+
+We currently agree to the following ways of working.
+
+* [How We Use Source Control](dev-docs/source-control.md)
+  * Use Arlo's Commit Notation
+  * Use Our Standard Branch Prefixes
+* [How We Code](dev-docs/coding.md)
+  * Test First
+	* Test as Spec
+	* Organize Tests Into Namespaces
+	* Use Team-shared `.editorconfig` and R# Settings
+* [How We Build and Test](dev-docs/building.md)
+  * How to Build & Test
+	* How to Generate the Spec
