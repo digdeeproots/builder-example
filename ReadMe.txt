@@ -15,6 +15,19 @@ Sample code that shows several ways to make tests obvious, especially by using b
 
 The end result is a coding style that results in fluid, rapid programming, yet still can be used in regulated environments to ease approval.
 
+## How to Change Processes
+
+All process agreements are made by pull request. Anyone may create a process proposal PR at any time. Acceptance (and merging) of the PR indicates acceptance of the proposal into the project.
+
+A process proposal consists of the following:
+
+* A branch with the name `process/[name-of-process]/[proposed-change]`.
+* Commits on that branch that modify this document or others linked from it, describing the proposed new way. The diff serves as the description of the change to get from our current process to the new one.
+* Risk codes in commit messages on a process branch shall refer to the risk entailed in adopting the portion of the process described in that commit.
+* A PR of that branch that includes all project leadership.
+
+Process review and agreement then follows the standard PR process. Generally, the project leadership will only approve the PR once Consent is achieved. PR comments are the preferred communications medium for discussing the change, so that the entire conversation is public.
+
 Use ACN
 Use 3 branch prefixes
 Use 3 test namespaces
