@@ -4,6 +4,6 @@ namespace Tests.TestSupport
 {
 	internal static class TestExtensions
 	{
-		public static MailMessage ShouldL(MailMessage subject) { return subject; }
+		public static MailMessage ShouldL(this MailMessage subject) { return subject; }
 	}
 }

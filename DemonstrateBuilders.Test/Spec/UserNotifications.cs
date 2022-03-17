@@ -20,7 +20,7 @@ namespace Tests.Spec
 
 			result.Should()
 				.NotBeNull();
-			BeTo(TestExtensions.ShouldL(result), Arbitrary.Email);
+			BeTo(result.ShouldL(), Arbitrary.Email);
 			result.From.Should()
 				.Be("customer.support@example.com");
 		}
