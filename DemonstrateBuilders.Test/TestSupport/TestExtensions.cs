@@ -19,12 +19,12 @@ namespace Tests.TestSupport
 
 		protected override string Identifier => "mail message";
 
-		public void BeTo(params string[] recipient)
+		public void BeTo(params string[] recipients)
 		{
 			Subject.To.Should()
 				.HaveCount(1);
 			Subject.To.Should()
-				.BeEquivalentTo(recipient.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
+				.BeEquivalentTo(recipients.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
 		}
 	}
 }
