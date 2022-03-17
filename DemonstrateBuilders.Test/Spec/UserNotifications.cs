@@ -1,5 +1,4 @@
 using DemonstrateBuilders;
-using FluentAssertions;
 using Tests.TestSupport;
 using Xunit;
 
@@ -16,8 +15,6 @@ public class UserNotifications
 		var testSubject = new SomePage(loggedInUser);
 		var result = testSubject.CreateHowToEmail();
 
-		AssertionExtensions.Should(result)
-			.NotBeNull();
 		result.Should()
 			.BeTo(Arbitrary.Email)
 			.And.BeFrom("customer.support@example.com");
