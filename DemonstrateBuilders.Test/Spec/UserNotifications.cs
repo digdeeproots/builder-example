@@ -19,8 +19,7 @@ public class UserNotifications
 		AssertionExtensions.Should(result)
 			.NotBeNull();
 		result.Should()
-			.BeTo(Arbitrary.Email);
-		result.Should()
-			.BeFrom("customer.support@example.com");
+			.BeTo(Arbitrary.Email)
+			.And.BeFrom("customer.support@example.com");
 	}
 }
