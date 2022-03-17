@@ -1,5 +1,6 @@
 using DemonstrateBuilders;
 using FluentAssertions;
+using System.Net.Mail;
 using Tests.TestSupport;
 using Xunit;
 
@@ -20,6 +21,11 @@ public class UserNotifications
 			.NotBeNull();
 		result.Should()
 			.BeTo(Arbitrary.Email);
+		BeFrom(result);
+	}
+
+	private static void BeFrom(MailMessage result)
+	{
 		result.From.Should()
 			.Be("customer.support@example.com");
 	}
