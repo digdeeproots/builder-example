@@ -34,6 +34,7 @@ We currently agree to the following ways of working.
 
 * [How We Use Source Control](dev-docs/source-control.md)
   * Use Arlo's Commit Notation
+	* Use Trunk-based Development
   * Use Our Standard Branch Prefixes
 * [How We Code](dev-docs/coding.md)
   * Test First
