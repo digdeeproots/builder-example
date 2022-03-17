@@ -60,4 +60,14 @@ We treat our test classes as a representation of the spec. We actually generate 
 
 ## Use Team-shared `.editorconfig` and R# Settings
 
+We all agree to use the same tooling. Every commit is expected to follow our standard formatting. This means each developer will:
 
+  * Use either Rider or Visual Studio + ReSharper.
+  * Configure the IDE to use the checked-in settings, both via `.editor.config` and R# settings.
+  * Set the IDE to automatically do a full clean on save and on copy for any touched file.
+	* Any time they want a different presentation, propose it as a `process/` change. That process change shall:
+	  * Include the updated config setting as a `p` commit.
+		* Contain no other changes.
+		* Go through our regular PR process, just like any other process change.
+		* Use subsequent commits during the PR process if needed to get to an agreed set of config settings.
+		* Upon PR agreement, rebase the branch onto `main` then perform a full-solution full-clean to apply the new settings universally. Approve the PR and merge after that commit.
