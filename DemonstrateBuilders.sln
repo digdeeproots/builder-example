@@ -12,6 +12,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dev-docs", "dev-docs", "{8D2C0E20-8473-4E68-9B38-CC75ED9320C6}"
+	ProjectSection(SolutionItems) = preProject
+		dev-docs\building.md = dev-docs\building.md
+		dev-docs\coding.md = dev-docs\coding.md
+		dev-docs\source-control.md = dev-docs\source-control.md
 	EndProjectSection
 EndProject
 Global
@@ -31,6 +39,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D2C0E20-8473-4E68-9B38-CC75ED9320C6} = {070494C8-D247-4A49-89B6-A2519D7A10EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6CF210A7-6108-4CDA-A763-A9A564B28FDA}
