@@ -20,12 +20,10 @@ namespace Tests.Spec
 
 			result.Should()
 				.NotBeNull();
-			BeTo(ShouldL(result), Arbitrary.Email);
+			BeTo(TestExtensions.ShouldL(result), Arbitrary.Email);
 			result.From.Should()
 				.Be("customer.support@example.com");
 		}
-
-		private static MailMessage ShouldL(MailMessage subject) { return subject; }
 
 		private static void BeTo(MailMessage result, string recipient)
 		{
