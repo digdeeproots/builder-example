@@ -1,6 +1,6 @@
 using System.Net.Mail;
 
-namespace Tests.Spec
+namespace Tests.TestSupport
 {
 	internal static class TestExtensions
 	{
