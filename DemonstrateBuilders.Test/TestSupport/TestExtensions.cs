@@ -1,5 +1,6 @@
 using FluentAssertions;
 using FluentAssertions.Primitives;
+using System.Linq;
 using System.Net.Mail;
 
 namespace Tests.TestSupport
@@ -18,12 +19,12 @@ namespace Tests.TestSupport
 
 		protected override string Identifier => "mail message";
 
-		public void BeTo(string recipient)
+		public void BeTo(params string[] recipient)
 		{
 			Subject.To.Should()
 				.HaveCount(1);
 			Subject.To.Should()
-				.BeEquivalentTo(new[] {new {Address = recipient}}, options => options.ExcludingMissingMembers());
+				.BeEquivalentTo(recipient.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
 		}
 	}
 }
