@@ -20,12 +20,7 @@ public class UserNotifications
 			.NotBeNull();
 		result.Should()
 			.BeTo(Arbitrary.Email);
-		BeFrom(result.Should(), "customer.support@example.com");
-	}
-
-	private static void BeFrom(MailMessageAssertions result, string sender)
-	{
-		result.Subject.From.Should()
-			.Be(sender);
+		result.Should()
+			.BeFrom("customer.support@example.com");
 	}
 }

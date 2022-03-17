@@ -25,4 +25,10 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 			.BeEquivalentTo(recipients.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
 		return new AndConstraint<MailMessageAssertions>(this);
 	}
+
+	public void BeFrom(string sender)
+	{
+		Subject.From.Should()
+			.Be(sender);
+	}
 }
