@@ -1,31 +1,22 @@
 using DemonstrateBuilders;
-using FluentAssertions;
-using System.Linq;
 using Tests.TestSupport;
 using Xunit;
 
-namespace Tests.Spec
-{
-	public class UserNotifications
-	{
-		[Fact]
-		public void AskingForHelpShouldSendHowToEmail()
-		{
-			var loggedInUser = Make.Authentication()
-				.WithEmailAddress(Arbitrary.Email)
-				.Build();
-			var testSubject = new SomePage(loggedInUser);
-			var result = testSubject.CreateHowToEmail();
+namespace Tests.Spec;
 
-			result.Should()
-				.NotBeNull();
-			result.To.Should()
-				.HaveCount(1);
-			result.To.First()
-				.Should()
-				.BeEquivalentTo(new {Address = Arbitrary.Email}, options => options.ExcludingMissingMembers());
-			result.From.Should()
-				.Be("customer.support@example.com");
-		}
+public class UserNotifications
+{
+	[Fact]
+	public void AskingForHelpShouldSendHowToEmail()
+	{
+		var loggedInUser = Make.Authentication()
+			.WithEmailAddress(Arbitrary.Email)
+			.Build();
+		var testSubject = new SomePage(loggedInUser);
+		var result = testSubject.CreateHowToEmail();
+
+		result.Should()
+			.BeTo(Arbitrary.Email)
+			.And.BeFrom("customer.support@example.com");
 	}
 }

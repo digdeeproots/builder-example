@@ -1,10 +1,9 @@
-namespace Tests.TestSupport
+namespace Tests.TestSupport;
+
+internal static class Make
 {
-	internal static class Make
+	public static AuthBuilder Authentication()
 	{
-		public static AuthBuilder Authentication()
-		{
-			return new AuthBuilder();
-		}
+		return new AuthBuilder();
 	}
 }
