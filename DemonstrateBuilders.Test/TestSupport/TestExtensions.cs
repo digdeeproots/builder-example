@@ -1,6 +1,5 @@
 using FluentAssertions;
 using FluentAssertions.Primitives;
-using System.Linq;
 using System.Net.Mail;
 
 namespace Tests.TestSupport
@@ -23,9 +22,8 @@ namespace Tests.TestSupport
 		{
 			Subject.To.Should()
 				.HaveCount(1);
-			Subject.To.First()
-				.Should()
-				.BeEquivalentTo(new {Address = recipient}, options => options.ExcludingMissingMembers());
+			Subject.To.Should()
+				.BeEquivalentTo(new[] {new {Address = recipient}}, options => options.ExcludingMissingMembers());
 		}
 	}
 }
