@@ -1,7 +1,6 @@
 using DemonstrateBuilders;
 using FluentAssertions;
 using System.Linq;
-using System.Net.Mail;
 using Tests.TestSupport;
 using Xunit;
 
@@ -25,11 +24,11 @@ namespace Tests.Spec
 				.Be("customer.support@example.com");
 		}
 
-		private static void BeTo(MailMessage result, string recipient)
+		private static void BeTo(MailMessageAssertions result, string recipient)
 		{
-			result.To.Should()
+			result.Subject.To.Should()
 				.HaveCount(1);
-			result.To.First()
+			result.Subject.To.First()
 				.Should()
 				.BeEquivalentTo(new {Address = recipient}, options => options.ExcludingMissingMembers());
 		}
