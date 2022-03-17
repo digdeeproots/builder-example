@@ -19,9 +19,10 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 
 	protected override string Identifier => "mail message";
 
-	public void BeTo(params string[] recipients)
+	public AndConstraint<MailMessageAssertions> BeTo(params string[] recipients)
 	{
 		Subject.To.Should()
 			.BeEquivalentTo(recipients.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
+		return new AndConstraint<MailMessageAssertions>(this);
 	}
 }
