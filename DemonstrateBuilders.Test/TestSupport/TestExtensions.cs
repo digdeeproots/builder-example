@@ -3,26 +3,25 @@ using FluentAssertions.Primitives;
 using System.Linq;
 using System.Net.Mail;
 
-namespace Tests.TestSupport
+namespace Tests.TestSupport;
+
+internal static class TestExtensions
 {
-	internal static class TestExtensions
+	public static MailMessageAssertions ShouldL(this MailMessage subject)
 	{
-		public static MailMessageAssertions ShouldL(this MailMessage subject)
-		{
-			return new MailMessageAssertions(subject);
-		}
+		return new MailMessageAssertions(subject);
 	}
+}
 
-	internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, MailMessageAssertions>
+internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, MailMessageAssertions>
+{
+	public MailMessageAssertions(MailMessage subject) : base(subject) { }
+
+	protected override string Identifier => "mail message";
+
+	public void BeTo(params string[] recipients)
 	{
-		public MailMessageAssertions(MailMessage subject) : base(subject) { }
-
-		protected override string Identifier => "mail message";
-
-		public void BeTo(params string[] recipients)
-		{
-			Subject.To.Should()
-				.BeEquivalentTo(recipients.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
-		}
+		Subject.To.Should()
+			.BeEquivalentTo(recipients.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
 	}
 }
