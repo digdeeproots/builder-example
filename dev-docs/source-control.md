@@ -25,3 +25,10 @@ We use trunk-based development with PRs. This means:
 
 ## Use Our Standard Branch Prefixes
 
+We use the following branch name prefixes to indicate the purpose of each feature branch.
+
+  * `features/`: changes which impact the product, including build environment, dev tooling or the like. Generally any code change is in such a branch.
+	* `probably-wrong/`: exploring directions that are likely wrong. These allow us to explore alternatives without worrying about them getting into the product. A `probably-wrong` branch cannot be merged into main, though it can later be renamed to a feature branch.
+	* `spikes/`: a durable exploration and example of something. Use these to explore an idea, then clean it up and leave that as an example for others. These are not product code and cannot be merged into main.
+	* `process/`: a change in our processes / working agreements. Anyone can create such a branch at any time; that constitutes a proposal. The PR is our chance to discuss the proposal. A proposal is accepted when the branch is merged into main. A rejected proposal can be deleted or left, as the author sees fit.
+	* `spec/`: a change in the spec only. Spec changes can also happen in `features/` branches. Naming a branch `spec/` simply provides clarity that the changes only constitute a proposed change to the spec; they do not include code to meet that new spec. Like a `process/` branch, PR is used to discuss the spec and approval consists of merging onto main.
