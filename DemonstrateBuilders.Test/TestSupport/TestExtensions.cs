@@ -1,4 +1,5 @@
 using FluentAssertions;
+using FluentAssertions.Primitives;
 using System.Linq;
 using System.Net.Mail;
 
@@ -12,10 +13,11 @@ namespace Tests.TestSupport
 		}
 	}
 
-	internal class MailMessageAssertions
+	internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, MailMessageAssertions>
 	{
-		public MailMessageAssertions(MailMessage subject) { Subject = subject; }
-		public MailMessage Subject { get; }
+		public MailMessageAssertions(MailMessage subject) : base(subject) { }
+
+		protected override string Identifier => "mail message";
 
 		public void BeTo(string recipient)
 		{
