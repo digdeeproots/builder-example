@@ -7,7 +7,7 @@ namespace Tests.TestSupport;
 
 internal static class TestExtensions
 {
-	public static MailMessageAssertions ShouldL(this MailMessage subject)
+	public static MailMessageAssertions Should(this MailMessage subject)
 	{
 		return new MailMessageAssertions(subject);
 	}

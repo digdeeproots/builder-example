@@ -16,9 +16,9 @@ public class UserNotifications
 		var testSubject = new SomePage(loggedInUser);
 		var result = testSubject.CreateHowToEmail();
 
-		result.Should()
+		AssertionExtensions.Should(result)
 			.NotBeNull();
-		result.ShouldL()
+		result.Should()
 			.BeTo(Arbitrary.Email);
 		result.From.Should()
 			.Be("customer.support@example.com");
