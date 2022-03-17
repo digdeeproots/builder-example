@@ -24,7 +24,13 @@ When modifying existing code we:
 
 ## Test as Spec
 
+We practice test as spec for each test. Each test is expected to be:
 
+  * A **Microtest**: it verifies one behavior and executes only the code it verifies.
+	* An **Acceptance test**: the behavior it verifies is of interest to its intended audience, and written in the language of that consumer (not the implementor).
+	* A **Clean test**: the test is deterministic, non-conditional, executes in parallel with all other tests, remains within the same process, and does not wait for things (time, I/O, etc).
+
+We do also support platform tests. Those are allowed to be non-clean, because they are validating things like the underlying I/O operations. Those are written separately, would be in different assemblies, and outside the scope of this example codebase.
 
 ## Organize Tests Into Namespaces
 
