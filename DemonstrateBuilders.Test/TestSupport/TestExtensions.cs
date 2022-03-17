@@ -22,8 +22,6 @@ namespace Tests.TestSupport
 		public void BeTo(params string[] recipients)
 		{
 			Subject.To.Should()
-				.HaveCount(1);
-			Subject.To.Should()
 				.BeEquivalentTo(recipients.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
 		}
 	}
