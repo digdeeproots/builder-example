@@ -25,7 +25,7 @@ namespace Tests.Spec
 				.Be("customer.support@example.com");
 		}
 
-		private MailMessage ShouldL(MailMessage subject) { return subject; }
+		private static MailMessage ShouldL(MailMessage subject) { return subject; }
 
 		private static void BeTo(MailMessage result, string recipient)
 		{
