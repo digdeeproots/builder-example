@@ -34,9 +34,9 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 		return AllowingAnd(this);
 	}
 
-	private AndConstraint<MailMessageAssertions> AllowingAnd(MailMessageAssertions assertions)
+	private AndConstraint<T> AllowingAnd<T>(T assertions)
 	{
-		return new AndConstraint<MailMessageAssertions>(assertions);
+		return new AndConstraint<T>(assertions);
 	}
 
 	public AndConstraint<MailMessageAssertions> HaveContent(Mailing expected)
