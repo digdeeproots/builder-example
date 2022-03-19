@@ -32,6 +32,8 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 			.Be(expected.Body);
 		Subject.Subject.Should()
 			.Be(expected.SubjectLine);
+		Subject.IsBodyHtml.Should()
+			.BeTrue();
 		return this.AllowingAnd();
 	}
 }
