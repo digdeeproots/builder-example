@@ -29,7 +29,7 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 	{
 		Subject.To.Should()
 			.BeEquivalentTo(recipients.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
-		return new AndConstraint<MailMessageAssertions>(this);
+		return this.AllowingAnd();
 	}
 
 	public AndConstraint<MailMessageAssertions> BeFrom(string sender)
@@ -41,6 +41,6 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 
 	public AndConstraint<MailMessageAssertions> HaveContent(Mailing expected)
 	{
-		return new AndConstraint<MailMessageAssertions>(this);
+		return this.AllowingAnd();
 	}
 }
