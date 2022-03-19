@@ -28,6 +28,8 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 
 	public AndConstraint<MailMessageAssertions> HaveContent(Mailing expected)
 	{
+		Subject.Body.Should()
+			.Be(expected.Body);
 		return this.AllowingAnd();
 	}
 }
