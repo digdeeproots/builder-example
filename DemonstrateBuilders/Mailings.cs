@@ -1,4 +1,4 @@
-namespace Tests.Spec;
+namespace DemonstrateBuilders;
 
 public static class Mailings
 {
