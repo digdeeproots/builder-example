@@ -21,5 +21,3 @@ public class UserNotifications
 			.And.HaveContent(Mailings.HowTo());
 	}
 }
-
-public record Mailing(string Body, string SubjectLine);
