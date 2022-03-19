@@ -22,4 +22,4 @@ public class UserNotifications
 	}
 }
 
-public record Mailing(string Body);
+public record Mailing(string Body, string SubjectLine);
