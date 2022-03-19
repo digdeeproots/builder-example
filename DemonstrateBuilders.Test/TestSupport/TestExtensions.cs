@@ -2,6 +2,7 @@ using FluentAssertions;
 using FluentAssertions.Primitives;
 using System.Linq;
 using System.Net.Mail;
+using Tests.Spec;
 
 namespace Tests.TestSupport;
 
@@ -30,6 +31,11 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 	{
 		Subject.From.Should()
 			.Be(sender);
+		return new AndConstraint<MailMessageAssertions>(this);
+	}
+
+	public AndConstraint<MailMessageAssertions> HaveContent(Mailing expected)
+	{
 		return new AndConstraint<MailMessageAssertions>(this);
 	}
 }

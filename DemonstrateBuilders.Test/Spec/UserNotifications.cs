@@ -17,6 +17,16 @@ public class UserNotifications
 
 		result.Should()
 			.BeTo(Arbitrary.Email)
-			.And.BeFrom("customer.support@example.com");
+			.And.BeFrom("customer.support@example.com")
+			.And.HaveContent(Mailings.HowTo());
 	}
+}
+
+public static class Mailings
+{
+	public static Mailing HowTo() { return null; }
+}
+
+public class Mailing
+{
 }
