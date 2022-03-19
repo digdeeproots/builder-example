@@ -31,8 +31,10 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 	{
 		Subject.From.Should()
 			.Be(sender);
-		return new AndConstraint<MailMessageAssertions>(this);
+		return AllowingAnd();
 	}
+
+	private AndConstraint<MailMessageAssertions> AllowingAnd() { return new AndConstraint<MailMessageAssertions>(this); }
 
 	public AndConstraint<MailMessageAssertions> HaveContent(Mailing expected)
 	{
