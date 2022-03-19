@@ -12,6 +12,11 @@ internal static class TestExtensions
 	{
 		return new MailMessageAssertions(subject);
 	}
+
+	public static AndConstraint<T> AllowingAnd<T>(T assertions)
+	{
+		return new AndConstraint<T>(assertions);
+	}
 }
 
 internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, MailMessageAssertions>
@@ -31,12 +36,7 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 	{
 		Subject.From.Should()
 			.Be(sender);
-		return AllowingAnd(this);
-	}
-
-	private static AndConstraint<T> AllowingAnd<T>(T assertions)
-	{
-		return new AndConstraint<T>(assertions);
+		return TestExtensions.AllowingAnd(this);
 	}
 
 	public AndConstraint<MailMessageAssertions> HaveContent(Mailing expected)
