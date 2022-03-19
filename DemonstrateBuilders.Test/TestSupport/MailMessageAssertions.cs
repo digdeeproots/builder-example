@@ -14,25 +14,28 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 
 	public AndConstraint<MailMessageAssertions> BeTo(params string[] recipients)
 	{
-		Subject.To.Should()
+		var email = Subject;
+		email.To.Should()
 			.BeEquivalentTo(recipients.Select(r => new {Address = r}), options => options.ExcludingMissingMembers());
 		return this.AllowingAnd();
 	}
 
 	public AndConstraint<MailMessageAssertions> BeFrom(string sender)
 	{
-		Subject.From.Should()
+		var email = Subject;
+		email.From.Should()
 			.Be(sender);
 		return this.AllowingAnd();
 	}
 
 	public AndConstraint<MailMessageAssertions> HaveContent(Mailing expected)
 	{
-		Subject.Body.Should()
+		var email = Subject;
+		email.Body.Should()
 			.Be(expected.Body);
-		Subject.Subject.Should()
+		email.Subject.Should()
 			.Be(expected.SubjectLine);
-		Subject.IsBodyHtml.Should()
+		email.IsBodyHtml.Should()
 			.BeTrue();
 		return this.AllowingAnd();
 	}
