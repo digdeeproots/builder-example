@@ -34,7 +34,7 @@ internal class MailMessageAssertions : ReferenceTypeAssertions<MailMessage, Mail
 		return AllowingAnd(this);
 	}
 
-	private AndConstraint<T> AllowingAnd<T>(T assertions)
+	private static AndConstraint<T> AllowingAnd<T>(T assertions)
 	{
 		return new AndConstraint<T>(assertions);
 	}
