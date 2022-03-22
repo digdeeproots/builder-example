@@ -18,7 +18,11 @@ internal class AuthBuilder
 		return this;
 	}
 
-	public AuthBuilder WithFirstName(string firstName) { return this; }
+	public AuthBuilder WithFirstName(string firstName)
+	{
+		_claims.Add(new Claim(ClaimTypes.GivenName, firstName));
+		return this;
+	}
 
 	public ClaimsPrincipal Build()
 	{
