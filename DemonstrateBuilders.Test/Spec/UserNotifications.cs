@@ -10,8 +10,9 @@ public class UserNotifications : IncludesGoldenMasterTests
 	[Fact]
 	public void AskingForHelpShouldSendHowToEmail()
 	{
+		var firstName = Arbitrary.String();
 		var loggedInUser = Make.Authentication()
-			.WithFirstName(Arbitrary.String())
+			.WithFirstName(firstName)
 			.WithEmailAddress(Arbitrary.Email)
 			.Build();
 		var testSubject = new SomePage(loggedInUser);
