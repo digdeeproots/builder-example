@@ -25,7 +25,7 @@ public class UserNotifications : IncludesGoldenMasterTests
 	[Fact]
 	public Task HowToEmailShouldHaveRightContents()
 	{
-		var testSubject = Mailings.HowTo("Sam", "Wednesday");
+		var testSubject = Mailings.HowTo("[your first name]", "[day you requested help]");
 		return Verify(testSubject);
 	}
 }

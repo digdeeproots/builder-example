@@ -1,4 +1,4 @@
 ﻿{
-  Body: <p>Hello, Sam.</p><p>Here's some help using <i>our awesome tool</i>.</p>,
-  SubjectLine: Help you requested on Wednesday
+  Body: <p>Hello, [your first name].</p><p>Here's some help using <i>our awesome tool</i>.</p>,
+  SubjectLine: Help you requested on [day you requested help]
 }
