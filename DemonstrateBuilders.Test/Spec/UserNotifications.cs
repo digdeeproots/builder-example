@@ -1,18 +1,12 @@
 using DemonstrateBuilders;
 using System.Threading.Tasks;
 using Tests.TestSupport;
-using VerifyTests;
-using VerifyXunit;
 using Xunit;
 
 namespace Tests.Spec;
 
-public class UserNotifications : VerifyBase
+public class UserNotifications : IncludesGoldenMasterTests
 {
-	public UserNotifications(VerifySettings? settings = null) : base(settings)
-	{
-	}
-
 	[Fact]
 	public void AskingForHelpShouldSendHowToEmail()
 	{
