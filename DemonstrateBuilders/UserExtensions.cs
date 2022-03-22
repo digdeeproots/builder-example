@@ -1,5 +1,7 @@
 using System.Security.Claims;
 
+namespace DemonstrateBuilders;
+
 internal static class UserExtensions
 {
 	public static string UserClaim(ClaimsPrincipal user, string claimType)
