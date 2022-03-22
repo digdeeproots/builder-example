@@ -14,7 +14,7 @@ public class SomePage
 
 	public MailMessage CreateHowToEmail()
 	{
-		var email = Build(new EmailBuilder());
+		var email = Build(_user, new EmailBuilder());
 		email.IsBodyHtml = true;
 		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), DateTime.Now.DayOfWeek.ToString());
 		email.Body = content.Body;
@@ -22,9 +22,9 @@ public class SomePage
 		return email;
 	}
 
-	private MailMessage Build(EmailBuilder emailBuilder)
+	private static MailMessage Build(ClaimsPrincipal user, EmailBuilder emailBuilder)
 	{
-		return new MailMessage("customer.support@example.com", _user.ValueFor(ClaimTypes.Email));
+		return new MailMessage("customer.support@example.com", user.ValueFor(ClaimTypes.Email));
 	}
 }
 
