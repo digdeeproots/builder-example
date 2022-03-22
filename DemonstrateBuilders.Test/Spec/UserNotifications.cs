@@ -21,7 +21,7 @@ public class UserNotifications : IncludesGoldenMasterTests
 		result.Should()
 			.BeTo(Arbitrary.Email)
 			.And.BeFrom("customer.support@example.com")
-			.And.HaveContent(Mailings.HowTo("Sam", "Wednesday"));
+			.And.HaveContent(Mailings.HowTo(firstName, "Wednesday"));
 	}
 
 	[Fact]
