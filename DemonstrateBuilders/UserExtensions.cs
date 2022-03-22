@@ -4,7 +4,7 @@ namespace DemonstrateBuilders;
 
 internal static class UserExtensions
 {
-	public static string UserClaim(ClaimsPrincipal user, string claimType)
+	public static string ValueFor(ClaimsPrincipal user, string claimType)
 	{
 		return user.Claims.First(cl => cl.Type == claimType)
 			.Value;
