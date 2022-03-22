@@ -18,6 +18,8 @@ internal class AuthBuilder
 		return this;
 	}
 
+	public AuthBuilder WithFirstName(string firstName) { return this; }
+
 	public ClaimsPrincipal Build()
 	{
 		return new ClaimsPrincipal(new ClaimsIdentity(_claims));
