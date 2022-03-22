@@ -1,4 +1,4 @@
 ﻿{
-  Body: ,
+  Body: <p>This is the email <b>body.</b></p>,
   SubjectLine: 
 }
