@@ -1,11 +1,18 @@
 using DemonstrateBuilders;
+using System.Threading.Tasks;
 using Tests.TestSupport;
+using VerifyTests;
+using VerifyXunit;
 using Xunit;
 
 namespace Tests.Spec;
 
-public class UserNotifications
+public class UserNotifications : VerifyBase
 {
+	public UserNotifications(VerifySettings? settings = null) : base(settings)
+	{
+	}
+
 	[Fact]
 	public void AskingForHelpShouldSendHowToEmail()
 	{
@@ -19,5 +26,12 @@ public class UserNotifications
 			.BeTo(Arbitrary.Email)
 			.And.BeFrom("customer.support@example.com")
 			.And.HaveContent(Mailings.HowTo());
+	}
+
+	[Fact]
+	public Task HowToEmailShouldHaveRightContents()
+	{
+		var testSubject = Mailings.HowTo();
+		return Verify(testSubject);
 	}
 }
