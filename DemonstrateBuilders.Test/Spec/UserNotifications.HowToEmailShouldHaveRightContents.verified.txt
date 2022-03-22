@@ -1,4 +1,4 @@
 ﻿{
-  Body: <p>This is the email <b>body.</b></p>,
-  SubjectLine: How to email subject
+  Body: <p>Hello, Sam.</p><p>Here's some help using <i>our awesome tool</i>.</p>,
+  SubjectLine: Help you requested on Wednesday
 }
