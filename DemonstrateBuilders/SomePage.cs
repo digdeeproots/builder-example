@@ -14,13 +14,18 @@ public class SomePage
 
 	public MailMessage CreateHowToEmail()
 	{
-		var email = new MailMessage("customer.support@example.com", _user.Claims.First(cl => cl.Type == ClaimTypes.Email)
-			.Value);
+		var email = new MailMessage("customer.support@example.com", UserClaim());
 		email.IsBodyHtml = true;
 		var content = Mailings.HowTo(_user.Claims.First(cl => cl.Type == ClaimTypes.GivenName)
 			.Value, "Wednesday");
 		email.Body = content.Body;
 		email.Subject = content.SubjectLine;
 		return email;
+	}
+
+	private string UserClaim()
+	{
+		return _user.Claims.First(cl => cl.Type == ClaimTypes.Email)
+			.Value;
 	}
 }
