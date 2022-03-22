@@ -14,20 +14,19 @@ public class SomePage
 
 	public MailMessage CreateHowToEmail()
 	{
-		var email = Build(_user, new EmailBuilder());
+		var email = new EmailBuilder().Build(_user);
 		email.IsBodyHtml = true;
 		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), DateTime.Now.DayOfWeek.ToString());
 		email.Body = content.Body;
 		email.Subject = content.SubjectLine;
 		return email;
 	}
-
-	private static MailMessage Build(ClaimsPrincipal user, EmailBuilder emailBuilder)
-	{
-		return new MailMessage("customer.support@example.com", user.ValueFor(ClaimTypes.Email));
-	}
 }
 
 public class EmailBuilder
 {
+	public MailMessage Build(ClaimsPrincipal user)
+	{
+		return new MailMessage("customer.support@example.com", user.ValueFor(ClaimTypes.Email));
+	}
 }
