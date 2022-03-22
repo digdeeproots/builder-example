@@ -16,7 +16,7 @@ public class SomePage
 	{
 		var email = new MailMessage("customer.support@example.com", _user.ValueFor(ClaimTypes.Email));
 		email.IsBodyHtml = true;
-		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), "Wednesday");
+		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), DateTime.Now.DayOfWeek.ToString());
 		email.Body = content.Body;
 		email.Subject = content.SubjectLine;
 		return email;

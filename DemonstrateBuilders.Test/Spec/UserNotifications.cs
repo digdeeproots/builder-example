@@ -1,4 +1,5 @@
 using DemonstrateBuilders;
+using System;
 using System.Threading.Tasks;
 using Tests.TestSupport;
 using Xunit;
@@ -21,7 +22,7 @@ public class UserNotifications : IncludesGoldenMasterTests
 		result.Should()
 			.BeTo(Arbitrary.Email)
 			.And.BeFrom("customer.support@example.com")
-			.And.HaveContent(Mailings.HowTo(firstName, "Wednesday"));
+			.And.HaveContent(Mailings.HowTo(firstName, DateTime.Now.DayOfWeek.ToString()));
 	}
 
 	[Fact]
