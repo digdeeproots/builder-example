@@ -19,6 +19,7 @@ public class SomePage
 		email.IsBodyHtml = true;
 		var content = Mailings.HowTo();
 		email.Body = content.Body;
+		email.Subject = content.SubjectLine;
 		return email;
 	}
 }
