@@ -14,7 +14,11 @@ public class SomePage
 
 	public MailMessage CreateHowToEmail()
 	{
-		return new MailMessage("customer.support@example.com", _user.Claims.First(cl => cl.Type == ClaimTypes.Email)
-			.Value);
+		var email = new MailMessage("customer.support@example.com", _user.ValueFor(ClaimTypes.Email));
+		email.IsBodyHtml = true;
+		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), DateTime.Now.DayOfWeek.ToString());
+		email.Body = content.Body;
+		email.Subject = content.SubjectLine;
+		return email;
 	}
 }
