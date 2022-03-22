@@ -17,7 +17,7 @@ public class SomePage
 		var email = new MailMessage("customer.support@example.com", _user.Claims.First(cl => cl.Type == ClaimTypes.Email)
 			.Value);
 		email.IsBodyHtml = true;
-		var content = Mailings.HowTo();
+		var content = Mailings.HowTo("Sam", "Wednesday");
 		email.Body = content.Body;
 		email.Subject = content.SubjectLine;
 		return email;

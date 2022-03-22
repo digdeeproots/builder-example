@@ -19,13 +19,13 @@ public class UserNotifications : IncludesGoldenMasterTests
 		result.Should()
 			.BeTo(Arbitrary.Email)
 			.And.BeFrom("customer.support@example.com")
-			.And.HaveContent(Mailings.HowTo());
+			.And.HaveContent(Mailings.HowTo("Sam", "Wednesday"));
 	}
 
 	[Fact]
 	public Task HowToEmailShouldHaveRightContents()
 	{
-		var testSubject = Mailings.HowTo();
+		var testSubject = Mailings.HowTo("Sam", "Wednesday");
 		return Verify(testSubject);
 	}
 }
