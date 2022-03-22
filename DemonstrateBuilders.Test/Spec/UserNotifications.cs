@@ -1,3 +1,4 @@
+using ApprovalTests;
 using DemonstrateBuilders;
 using Tests.TestSupport;
 using Xunit;
@@ -19,5 +20,12 @@ public class UserNotifications
 			.BeTo(Arbitrary.Email)
 			.And.BeFrom("customer.support@example.com")
 			.And.HaveContent(Mailings.HowTo());
+	}
+
+	[Fact]
+	public void HowToEmailShouldHaveRightContents()
+	{
+		var testSubject = Mailings.HowTo();
+		Approvals.Verify(testSubject);
 	}
 }
