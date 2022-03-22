@@ -14,7 +14,7 @@ public class SomePage
 
 	public MailMessage CreateHowToEmail()
 	{
-		var email = new MailMessage("customer.support@example.com", UserClaim());
+		var email = new MailMessage("customer.support@example.com", UserClaim(ClaimTypes.Email));
 		email.IsBodyHtml = true;
 		var content = Mailings.HowTo(_user.Claims.First(cl => cl.Type == ClaimTypes.GivenName)
 			.Value, "Wednesday");
@@ -23,9 +23,9 @@ public class SomePage
 		return email;
 	}
 
-	private string UserClaim()
+	private string UserClaim(string claimType)
 	{
-		return _user.Claims.First(cl => cl.Type == ClaimTypes.Email)
+		return _user.Claims.First(cl => cl.Type == claimType)
 			.Value;
 	}
 }
