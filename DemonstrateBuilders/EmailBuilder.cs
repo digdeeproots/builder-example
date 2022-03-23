@@ -17,7 +17,7 @@ public class EmailBuilder
 		return _mailMessage;
 	}
 
-	public MailMessage WithMessage(Mailing content)
+	public MailMessage Vanishing(Mailing content)
 	{
 		_mailMessage.IsBodyHtml = true;
 		_mailMessage.Body = content.Body;
