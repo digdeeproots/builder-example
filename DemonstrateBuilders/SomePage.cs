@@ -7,7 +7,7 @@ public class SomePage
 {
 	private readonly ClaimsPrincipal _user;
 
-	public SomePage(ClaimsPrincipal user)
+	public SomePage(ClaimsPrincipal user, Action<MailMessage> sendEmail)
 	{
 		_user = user;
 	}

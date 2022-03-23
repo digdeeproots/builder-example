@@ -18,7 +18,7 @@ public class UserNotifications : IncludesGoldenMasterTests
 			.WithEmailAddress(Arbitrary.Email)
 			.Build();
 		MailMessage result;
-		var testSubject = new SomePage(loggedInUser);
+		var testSubject = new SomePage(loggedInUser, email => result = email);
 		result = testSubject.CreateHowToEmail();
 
 		result.Should()
