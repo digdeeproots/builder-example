@@ -6,6 +6,7 @@ namespace DemonstrateBuilders;
 public class EmailBuilder
 {
 	private ClaimsPrincipal _recipient;
+	public EmailBuilder(ClaimsPrincipal recipient) { _recipient = recipient; }
 
 	public MailMessage Build(ClaimsPrincipal user)
 	{
