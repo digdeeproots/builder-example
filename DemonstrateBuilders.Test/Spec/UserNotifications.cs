@@ -1,5 +1,6 @@
 using DemonstrateBuilders;
 using System;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Tests.TestSupport;
 using Xunit;
@@ -17,7 +18,8 @@ public class UserNotifications : IncludesGoldenMasterTests
 			.WithEmailAddress(Arbitrary.Email)
 			.Build();
 		var testSubject = new SomePage(loggedInUser);
-		var result = testSubject.CreateHowToEmail();
+		MailMessage result;
+		result = testSubject.CreateHowToEmail();
 
 		result.Should()
 			.BeTo(Arbitrary.Email)
