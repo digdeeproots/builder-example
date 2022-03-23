@@ -23,10 +23,11 @@ public class EmailBuilder
 		return Build();
 	}
 
-	private void ForMailing(Mailing content)
+	private EmailBuilder ForMailing(Mailing content)
 	{
 		_mailMessage.IsBodyHtml = true;
 		_mailMessage.Body = content.Body;
 		_mailMessage.Subject = content.SubjectLine;
+		return this;
 	}
 }
