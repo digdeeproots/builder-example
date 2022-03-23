@@ -12,7 +12,7 @@ public class EmailTo
 		_email = new MailMessage("customer.support@example.com", recipient.ValueFor(ClaimTypes.Email));
 	}
 
-	public EmailTo ForMailing(Mailing content)
+	public EmailTo WithContent(Mailing content)
 	{
 		_email.IsBodyHtml = true;
 		_email.Body = content.Body;
