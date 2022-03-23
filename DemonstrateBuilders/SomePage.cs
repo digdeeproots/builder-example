@@ -21,5 +21,5 @@ public class SomePage
 		Send(builder, _sendEmail);
 	}
 
-	private void Send(EmailTo builder, Action<MailMessage> sendEmail) { sendEmail(builder.Build()); }
+	private static void Send(EmailTo builder, Action<MailMessage> sendEmail) { sendEmail(builder.Build()); }
 }
