@@ -19,8 +19,8 @@ public class EmailBuilder
 
 	public MailMessage Vanishing(Mailing content)
 	{
-		ForMailing(content);
-		return Build();
+		return ForMailing(content)
+			.Build();
 	}
 
 	private EmailBuilder ForMailing(Mailing content)
