@@ -19,9 +19,14 @@ public class EmailBuilder
 
 	public MailMessage Vanishing(Mailing content)
 	{
+		ForMailing(content);
+		return Build();
+	}
+
+	private void ForMailing(Mailing content)
+	{
 		_mailMessage.IsBodyHtml = true;
 		_mailMessage.Body = content.Body;
 		_mailMessage.Subject = content.SubjectLine;
-		return Build();
 	}
 }
