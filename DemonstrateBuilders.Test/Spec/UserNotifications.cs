@@ -1,5 +1,6 @@
 using DemonstrateBuilders;
 using System;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Tests.TestSupport;
 using Xunit;
@@ -11,13 +12,14 @@ public class UserNotifications : IncludesGoldenMasterTests
 	[Fact]
 	public void AskingForHelpShouldSendHowToEmail()
 	{
+		MailMessage? result = null;
 		var firstName = Arbitrary.String();
 		var loggedInUser = Make.Authentication()
 			.WithFirstName(firstName)
 			.WithEmailAddress(Arbitrary.Email)
 			.Build();
-		var testSubject = new SomePage(loggedInUser);
-		var result = testSubject.CreateHowToEmail();
+		var testSubject = new SomePage(loggedInUser, email => result = email);
+		testSubject.CreateHowToEmail();
 
 		result.Should()
 			.BeTo(Arbitrary.Email)
