@@ -22,14 +22,3 @@ public class SomePage
 		return email;
 	}
 }
-
-public class EmailBuilder
-{
-	private ClaimsPrincipal _recipient;
-
-	public MailMessage Build(ClaimsPrincipal user)
-	{
-		_recipient = user;
-		return new MailMessage("customer.support@example.com", _recipient.ValueFor(ClaimTypes.Email));
-	}
-}
