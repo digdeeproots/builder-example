@@ -17,12 +17,6 @@ public class EmailBuilder
 		return _mailMessage;
 	}
 
-	public MailMessage Vanishing(Mailing content)
-	{
-		return ForMailing(content)
-			.Build();
-	}
-
 	public EmailBuilder ForMailing(Mailing content)
 	{
 		_mailMessage.IsBodyHtml = true;
