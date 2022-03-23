@@ -3,16 +3,16 @@ using System.Security.Claims;
 
 namespace DemonstrateBuilders;
 
-public class EmailBuilder
+public class EmailTo
 {
 	private readonly MailMessage _email;
 
-	public EmailBuilder(ClaimsPrincipal recipient)
+	public EmailTo(ClaimsPrincipal recipient)
 	{
 		_email = new MailMessage("customer.support@example.com", recipient.ValueFor(ClaimTypes.Email));
 	}
 
-	public EmailBuilder ForMailing(Mailing content)
+	public EmailTo ForMailing(Mailing content)
 	{
 		_email.IsBodyHtml = true;
 		_email.Body = content.Body;
