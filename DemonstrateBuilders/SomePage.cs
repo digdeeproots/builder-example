@@ -14,12 +14,11 @@ public class SomePage
 		_sendEmail = sendEmail;
 	}
 
-	public MailMessage CreateHowToEmail()
+	public void CreateHowToEmail()
 	{
 		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), DateTime.Now.DayOfWeek.ToString());
 		var builder = new EmailTo(_user).WithContent(content);
 		var email = builder.Build();
 		_sendEmail(email);
-		return email;
 	}
 }
