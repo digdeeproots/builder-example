@@ -25,5 +25,5 @@ public class EmailTo
 		return _email;
 	}
 
-	public void Send(Action<MailMessage> sendEmail) { sendEmail(Build()); }
+	public void Send(Action<MailMessage> sendEmail) { sendEmail(_email); }
 }
