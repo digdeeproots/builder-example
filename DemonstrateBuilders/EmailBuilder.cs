@@ -23,6 +23,6 @@ public class EmailBuilder
 		email.IsBodyHtml = true;
 		email.Body = content.Body;
 		email.Subject = content.SubjectLine;
-		return email;
+		return Build();
 	}
 }
