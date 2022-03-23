@@ -19,10 +19,9 @@ public class EmailBuilder
 
 	public MailMessage WithMessage(Mailing content)
 	{
-		var email = _mailMessage;
-		email.IsBodyHtml = true;
-		email.Body = content.Body;
-		email.Subject = content.SubjectLine;
+		_mailMessage.IsBodyHtml = true;
+		_mailMessage.Body = content.Body;
+		_mailMessage.Subject = content.SubjectLine;
 		return Build();
 	}
 }
