@@ -16,4 +16,13 @@ public class EmailBuilder
 	{
 		return _mailMessage;
 	}
+
+	public MailMessage WithMessage(Mailing content)
+	{
+		var email = Build();
+		email.IsBodyHtml = true;
+		email.Body = content.Body;
+		email.Subject = content.SubjectLine;
+		return email;
+	}
 }

@@ -16,16 +16,7 @@ public class SomePage
 	{
 		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), DateTime.Now.DayOfWeek.ToString());
 		var emailBuilder = new EmailBuilder(_user);
-		var email = WithMessage(emailBuilder, content);
-		return email;
-	}
-
-	private static MailMessage WithMessage(EmailBuilder emailBuilder, Mailing content)
-	{
-		var email = emailBuilder.Build();
-		email.IsBodyHtml = true;
-		email.Body = content.Body;
-		email.Subject = content.SubjectLine;
+		var email = emailBuilder.WithMessage(content);
 		return email;
 	}
 }
