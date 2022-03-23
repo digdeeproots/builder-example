@@ -24,4 +24,6 @@ public class EmailTo
 	{
 		return _email;
 	}
+
+	public void Send(Action<MailMessage> sendEmail) { sendEmail(Build()); }
 }
