@@ -5,11 +5,13 @@ namespace DemonstrateBuilders;
 
 public class SomePage
 {
+	private readonly Action<MailMessage> _sendEmail;
 	private readonly ClaimsPrincipal _user;
 
 	public SomePage(ClaimsPrincipal user, Action<MailMessage> sendEmail)
 	{
 		_user = user;
+		_sendEmail = sendEmail;
 	}
 
 	public MailMessage CreateHowToEmail()
