@@ -18,8 +18,8 @@ public class SomePage
 	{
 		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), DateTime.Now.DayOfWeek.ToString());
 		var builder = new EmailTo(_user).WithContent(content);
-		Send(builder);
+		Send(builder, _sendEmail);
 	}
 
-	private void Send(EmailTo builder) { _sendEmail(builder.Build()); }
+	private void Send(EmailTo builder, Action<MailMessage> sendEmail) { sendEmail(builder.Build()); }
 }
