@@ -15,8 +15,7 @@ public class SomePage
 	public MailMessage CreateHowToEmail()
 	{
 		var content = Mailings.HowTo(_user.ValueFor(ClaimTypes.GivenName), DateTime.Now.DayOfWeek.ToString());
-		var email = new EmailTo(_user).WithContent(content)
+		return new EmailTo(_user).WithContent(content)
 			.Build();
-		return email;
 	}
 }
