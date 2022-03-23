@@ -23,7 +23,7 @@ public class EmailBuilder
 			.Build();
 	}
 
-	private EmailBuilder ForMailing(Mailing content)
+	public EmailBuilder ForMailing(Mailing content)
 	{
 		_mailMessage.IsBodyHtml = true;
 		_mailMessage.Body = content.Body;
