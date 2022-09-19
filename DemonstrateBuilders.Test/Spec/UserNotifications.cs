@@ -1,5 +1,6 @@
 using DemonstrateBuilders;
 using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Tests.TestSupport;
 using Xunit;
@@ -11,12 +12,17 @@ public class UserNotifications : IncludesGoldenMasterTests
 	[Fact]
 	public void AskingForHelpShouldSendHowToEmail()
 	{
+		ClaimsPrincipal applesauce(string s)
+		{
+			var claimsPrincipal = Make.Authentication()
+				.WithFirstName(s)
+				.WithEmailAddress(Arbitrary.Email)
+				.Build();
+			return claimsPrincipal;
+		}
 
 		var firstName = Arbitrary.String();
-		var loggedInUser = Make.Authentication()
-			.WithFirstName(firstName)
-			.WithEmailAddress(Arbitrary.Email)
-			.Build();
+		var loggedInUser = applesauce(firstName);
 		var testSubject = new SomePage(loggedInUser);
 		var result = testSubject.CreateHowToEmail();
 
