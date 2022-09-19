@@ -22,8 +22,8 @@ public class UserNotifications : IncludesGoldenMasterTests
 		}
 
 		var firstName = Arbitrary.String();
-		var loggedInUser = applesauce(firstName);
-		var testSubject = new SomePage(loggedInUser);
+		var user = applesauce(firstName);
+		var testSubject = new SomePage(user);
 		var result = testSubject.CreateHowToEmail();
 
 		result.Should()
