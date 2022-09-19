@@ -9,8 +9,8 @@ namespace Tests.Spec;
 
 public class Person
 {
-	public Person(string s) { S = s; }
-	public string S { get; }
+	public Person(string firstName) { FirstName = firstName; }
+	public string FirstName { get; }
 }
 
 public class UserNotifications : IncludesGoldenMasterTests
@@ -21,7 +21,7 @@ public class UserNotifications : IncludesGoldenMasterTests
 		ClaimsPrincipal applesauce(Person person)
 		{
 			var claimsPrincipal = Make.Authentication()
-				.WithFirstName(person.S)
+				.WithFirstName(person.FirstName)
 				.WithEmailAddress(Arbitrary.Email)
 				.Build();
 			return claimsPrincipal;
