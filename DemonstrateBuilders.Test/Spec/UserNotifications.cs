@@ -7,15 +7,21 @@ using Xunit;
 
 namespace Tests.Spec;
 
+public class Person
+{
+	public Person(string s) { S = s; }
+	public string S { get; }
+}
+
 public class UserNotifications : IncludesGoldenMasterTests
 {
 	[Fact]
 	public void AskingForHelpShouldSendHowToEmail()
 	{
-		ClaimsPrincipal appleSauce(string s)
+		ClaimsPrincipal appleSauce(Person person)
 		{
 			var claimsPrincipal = Make.Authentication()
-				.WithFirstName(s)
+				.WithFirstName(person.S)
 				.WithEmailAddress(Arbitrary.Email)
 				.Build();
 			return claimsPrincipal;
@@ -23,6 +29,7 @@ public class UserNotifications : IncludesGoldenMasterTests
 
 		var firstName = Arbitrary.String();
 		// do some more custom code.
+		// And more.
 		var user = applesauce(firstName);
 		var testSubject = new SomePage(user);
 		var result = testSubject.CreateHowToEmail();
