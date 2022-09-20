@@ -12,7 +12,7 @@ public class UserNotifications : IncludesGoldenMasterTests
 	[Fact]
 	public void AskingForHelpShouldSendHowToEmail()
 	{
-		ClaimsPrincipal applesauce(string s)
+		ClaimsPrincipal appleSauce(string s)
 		{
 			var claimsPrincipal = Make.Authentication()
 				.WithFirstName(s)
